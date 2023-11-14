@@ -10,13 +10,7 @@ import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
 import { View, Text, TextInput, Button, ScrollView } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions,} from 'react-native/Libraries/NewAppScreen';
 
 const ToDoList = () => {
   return (
@@ -31,7 +25,7 @@ const Section = ({ children, title }) => {
   return (
     <View style={styles.sectionContainer}>
       <ToDoForm />
-      <ToDoList />
+      <ToDoList tasks={tasks} />
       <Text
         style={[
           styles.sectionTitle,
@@ -54,7 +48,12 @@ const Section = ({ children, title }) => {
   );
 }
 
-const App = () => {
+function App() {
+  const [tasks, setTasks] = useState([
+    'Do laundry',
+    'Go to gym',
+    'Walk dog'
+  ]);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
