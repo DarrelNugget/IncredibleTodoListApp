@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import ToDoList from './ToDoList';
+import ToDoForm from './ToDoForm';
 import { View, Text, TextInput, Button, ScrollView } from 'react-native';
 
 import {
@@ -16,10 +18,20 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+const ToDoList = () => {
+  return (
+    <ScrollView>
+      <Text style={styles.sectionTitle}>Task 1</Text>
+      <Text style={styles.sectionTitle}>Task 2</Text>
+    </ScrollView>
+  )
+};
 const Section = ({ children, title }) => {
   const isDarkMode = false;
   return (
     <View style={styles.sectionContainer}>
+      <ToDoForm />
+      <ToDoList />
       <Text
         style={[
           styles.sectionTitle,
